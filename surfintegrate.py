@@ -1,8 +1,17 @@
 def udiff(F,u,v):
+  """
+  This method calculates the partial derivative of function F with respect to u.
+  """
   return (F(u+10**(-6),v)-F(u,v))/(10**(-6))
 def vdiff(F,u,v):
+  """
+  This method calculates the partial derivative of function F with respect to v.
+  """
   return (F(u,v+10**(-6))-F(u,v))/(10**(-6))
 def f(G,X,Y,Z,a,b):
+  """
+  This method calculates the value of ||ruXrv|| at point (a,b).
+  """
   xu=udiff(X,a,b)
   xv=vdiff(X,a,b)
   yu=udiff(Y,a,b)
@@ -14,6 +23,9 @@ def f(G,X,Y,Z,a,b):
   cz=((xu*yv-xv*yu)**2)
   return G(a,b)*((cx+cy+cz)**0.5)
 def surfintegrate(G,X,Y,Z,U,V):
+  """
+  This method calulates the value of surface integral by the application of Simpson's rule for double integrals.
+  """
   N=100
   M=100
   h=(U[1]-U[0])/(2*M)
@@ -108,6 +120,9 @@ def surfintegrate(G,X,Y,Z,U,V):
     j+=1
   S.append(4*s)
   return (sum(S)*h*k/9)+I
+"""
+Main Code
+"""
 import numpy
 G=lambda u,v:1
 X=lambda u,v:(2+numpy.cos(u))*numpy.cos(v)
