@@ -27,7 +27,7 @@ def f(G,X,Y,Z,a,b):
 
 def surfintegrate(G,X,Y,Z,U,V):
   """
-  This method calulates the value of surface integral by the application of Simpson's rule for double integrals.
+  This method calculates the value of surface integral by the application of Simpson's rule for double integrals.
   """
   N=100
   M=100
